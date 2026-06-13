@@ -1,0 +1,81 @@
+namespace WinFormsApp25
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form2 form2 = new Form2();
+            form2.Show();
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+
+namespace WinFormsApp25
+{
+    public partial class Form2 : Form
+    {
+        public Form2()
+        {
+            InitializeComponent();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string gradeText = textBox1.Text;
+            double grade;
+            try
+            {
+                grade = Convert.ToDouble(gradeText);
+                if (grade < 0 || grade > 100)
+                {
+                    MessageBox.Show("Invalid Input, Enter Valid Number (0-100)");
+                }
+                else { if (grade >= 98 && grade <= 100)
+                        MessageBox.Show("Your Grade: Number Equivalent: 1.00 Letter Equivalent: A+");
+                    else if (grade >= 95 && grade <= 97)
+                        MessageBox.Show("Your Grade: Number Equivalent: 1.25 Letter Equivalent: A");
+                    else if (grade >= 92 && grade <= 94)
+                        MessageBox.Show("Your Grade: Number Equivalent: 1.50 Letter Equivalent: A-");
+                    else if (grade >= 89 && grade <= 91)
+                        MessageBox.Show("Your Grade: Number Equivalent: 1.75 Letter Equivalent: B+");
+                    else if (grade >= 86 && grade <= 88)
+                        MessageBox.Show("Your Grade: Number Equivalent: 2.00 Letter Equivalent: B");
+                    else if (grade >= 83 && grade <= 85)
+                        MessageBox.Show("Your Grade: Number Equivalent: 2.25 Letter Equivalent: B-");
+                    else if (grade >= 80 && grade <= 82)
+                        MessageBox.Show("Your Grade: Number Equivalent: 2.50 Letter Equivalent: C+");
+                    else if (grade >= 78 && grade <= 79)
+                        MessageBox.Show("Your Grade: Number Equivalent: 2.75 Letter Equivalent: C");
+                    else if (grade >= 75 && grade <= 77)
+                        MessageBox.Show("Your Grade: Number Equivalent: 3.00 Letter Equivalent: C-");
+                    else 
+                        MessageBox.Show("Your Grade: Number Equivalent: 5.00 Letter Equivalent: D");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Invalid Input, Enter Valid Number (0-100)");
+            }
+        }
+    }
+}
+
